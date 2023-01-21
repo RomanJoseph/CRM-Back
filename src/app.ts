@@ -5,6 +5,8 @@ import cors from "cors";
 
 import { loadEnv, connectDb, disconnectDB } from "@/config";
 
+import { registerRouter } from "./routers/register-router";
+
 loadEnv();
 
 import { handleApplicationErrors } from "./middlewares/error-handling-middleware";
@@ -14,6 +16,7 @@ app
   .use(cors())
   .use(express.json())
   .get("/health", (_req, res) => res.status(200).send("Okay!"))
+  .use("/register", registerRouter)
   .use(handleApplicationErrors);
 
 export function init(): Promise<Express> {
