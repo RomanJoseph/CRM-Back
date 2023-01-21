@@ -6,6 +6,7 @@ import cors from "cors";
 import { loadEnv, connectDb, disconnectDB } from "@/config";
 
 import { registerRouter } from "./routers/register-router";
+import { questionRouter } from "./routers/question-router";
 
 loadEnv();
 
@@ -17,6 +18,7 @@ app
   .use(express.json())
   .get("/health", (_req, res) => res.status(200).send("Okay!"))
   .use("/register", registerRouter)
+  .use("/question", questionRouter)
   .use(handleApplicationErrors);
 
 export function init(): Promise<Express> {
