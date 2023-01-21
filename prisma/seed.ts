@@ -8,8 +8,8 @@ async function main() {
         data: {
             email: "email@email.com",
             name: "name",
-            birthDate: "08/30/2001",
-            phone: "18988116427"
+            birthDate: new Date("30-08-2001"),
+            phone: "123456789"
         }
     })
   }
